@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BTD UNIVERSE - Hub Oficial</title>
     <style>
-        /* REGRAS PRESERVADAS DO SEU DESIGN ORIGINAL */
         :root {
-            --bg: #0a0a0c;
+            --bg: #030306;
             --ink: #f5f5f7;
             --cyan: #00f0ff;
             --purple: #7000ff;
+            --pink: #ff007f;
             --gold: #ffd166;
             --sans: 'Rajdhani', sans-serif;
             --serif: 'Cormorant Garamond', Georgia, serif;
@@ -30,12 +30,11 @@
             content: "";
             position: fixed;
             inset: 0;
-            background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,212,255,0.008) 3px, rgba(0,212,255,0.008) 4px);
+            background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,212,255,0.005) 3px, rgba(0,212,255,0.005) 4px);
             pointer-events: none;
             z-index: 999;
         }
 
-        /* HEADER E NAV COMPACTO */
         nav {
             position: fixed;
             top: 0; left: 0; right: 0;
@@ -44,15 +43,15 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(3,3,10,0.88);
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            background: rgba(3,3,6,0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,240,255,0.1);
         }
         .nav-logo {
             font-family: var(--mono);
             font-size: 13px;
             font-weight: 700;
-            letter-spacing: 0.25em;
+            letter-spacing: 0.3em;
             text-transform: uppercase;
             color: var(--cyan);
             text-decoration: none;
@@ -67,38 +66,38 @@
             text-transform: uppercase;
             transition: color 0.2s;
         }
-        .nav-links a:hover { color: var(--cyan); }
+        .nav-links a:hover { color: var(--pink); }
 
-        /* HERO & BANNER SOFISTICADO */
+        /* HERO COM INTEGRATION DO SEU BANNER CYBER */
         .banner-hero {
             position: relative;
-            min-height: 50vh;
+            min-height: 60vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 8rem 2rem 4rem;
-            background: linear-gradient(180deg, rgba(112,0,255,0.15) 0%, rgba(10,10,12,1) 100%), url('btdbanner.png') center/cover no-repeat;
-            border-bottom: 1px solid rgba(0,240,255,0.1);
+            padding: 10rem 2rem 5rem;
+            background: linear-gradient(180deg, rgba(3,3,6,0.4) 0%, rgba(3,3,6,1) 100%), url('btdbanner.png') center/cover no-repeat;
+            border-bottom: 1px solid rgba(255, 0, 127, 0.15);
         }
         .logo-container img {
-            max-width: 180px;
+            max-width: 220px;
             height: auto;
-            filter: drop-shadow(0 0 15px rgba(0,240,255,0.4));
-            margin-bottom: 1.5rem;
+            filter: drop-shadow(0 0 20px rgba(0,240,255,0.3));
+            margin-bottom: 2rem;
         }
         .banner-hero h1 {
-            font-family: var(--serif);
-            font-size: 3rem;
-            font-weight: 300;
-            letter-spacing: 0.05em;
+            font-family: var(--mono);
+            font-size: 1.5rem;
+            font-weight: 400;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
             margin: 0;
             color: var(--ink);
-            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+            text-shadow: 0 2px 15px rgba(0,0,0,0.9);
         }
 
-        /* GRID E CONTEÚDO */
         .container {
             max-width: 1100px;
             margin: 0 auto;
@@ -113,22 +112,35 @@
         @media (max-width: 768px) { .section-grid { grid-template-columns: 1fr; } }
 
         .card {
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.05);
+            background: rgba(255,255,255,0.01);
+            border: 1px solid rgba(0,240,255,0.05);
             padding: 2.5rem;
             border-radius: 4px;
             position: relative;
-            transition: border 0.3s;
+            transition: all 0.3s ease;
         }
-        .card:hover { border-color: var(--cyan); }
+        .card:hover { 
+            border-color: var(--pink);
+            background: rgba(255,255,255,0.02);
+            box-shadow: 0 0 30px rgba(255,0,127,0.05);
+        }
         .card h2 {
-            font-family: var(--serif);
-            font-size: 1.8rem;
+            font-family: var(--mono);
+            font-size: 1.2rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
             margin-top: 0;
-            color: var(--gold);
+            color: var(--cyan);
         }
 
-        /* LINKS DOS STREAMINGS (BOTÕES) */
+        .audio-widget {
+            margin-top: 1.5rem;
+            background: rgba(255,0,127,0.03);
+            border: 1px solid rgba(255,0,127,0.3);
+            padding: 1.2rem;
+            border-radius: 4px;
+        }
+
         .streaming-links {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -143,27 +155,18 @@
             font-family: var(--mono);
             font-size: 11px;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.15em;
             text-decoration: none;
-            border-radius: 4px;
-            background: rgba(255,255,255,0.05);
+            border-radius: 2px;
+            background: rgba(255,255,255,0.03);
             color: var(--ink);
-            border: 1px solid transparent;
-            transition: all 0.2s;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.25s ease;
         }
-        .stream-btn.spotify:hover { background: #1DB954; color: #000; }
-        .stream-btn.apple:hover { background: #FC3C44; color: #fff; }
-        .stream-btn.amazon:hover { background: #00A8E1; color: #fff; }
-        .stream-btn.youtube:hover { background: #FF0000; color: #fff; }
-
-        /* PLAYER DE ÁUDIO OCULTO / AUTOMÁTICO */
-        .audio-widget {
-            margin-top: 1.5rem;
-            background: rgba(0,240,255,0.05);
-            border: 1px solid var(--cyan);
-            padding: 1rem;
-            border-radius: 4px;
-        }
+        .stream-btn.spotify:hover { background: #1DB954; color: #000; border-color: #1DB954; }
+        .stream-btn.apple:hover { background: #FC3C44; color: #fff; border-color: #FC3C44; }
+        .stream-btn.amazon:hover { background: #00A8E1; color: #fff; border-color: #00A8E1; }
+        .stream-btn.youtube:hover { background: #FF0000; color: #fff; border-color: #FF0000; }
     </style>
 </head>
 <body>
@@ -176,47 +179,46 @@
         </div>
     </nav>
 
-    <!-- BANNER PROFISSIONAL DE ALTO PADRÃO -->
+    <!-- BANNER INTEGRADO COM PORTFÓLIO DE PROPRIEDADE INTESTRAL -->
     <header class="banner-hero">
         <div class="logo-container">
-            <!-- Puxa automaticamente a logo do seu repositório -->
-            <img src="btdlogo.png" alt="BTD Universe Logo">
+            <!-- Puxa o logotipo com glitch digital enviado -->
+            <img src="btdlogo.png" alt="BTD Logo">
         </div>
-        <h1>Soberania Ancestral & Transmídia</h1>
+        <h1>Breaking Through Digital</h1>
     </header>
 
     <main class="container">
         <div class="section-grid">
             
-            <!-- NARRATIVA E O FIO TÊNUE -->
+            <!-- SEÇÃO LITERÁRIA NARRATIVA -->
             <section id="narrativa" class="card">
-                <h2>Códice Literário</h2>
-                <p>Fundação narrativa baseada em subjetividade humana e fricção digital. Conheça a obra que ancora o ecossistema:</p>
-                <a href="https://caravanagrupoeditorial.com.br" target="_blank" style="color: var(--cyan); text-decoration: none; font-weight: bold; letter-spacing: 0.05em;">
-                    → Adquirir / Acessar "O Fio Tênue"
+                <h2>Códice Narrativo</h2>
+                <p>Estrutura transmedia e profundidade subjetiva em LatAm. Acesse a fundação de nossa arquitetura de história:</p>
+                <a href="https://caravanagrupoeditorial.com.br" target="_blank" style="color: var(--pink); text-decoration: none; font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; font-weight: bold;">
+                    // ACESSAR "O FIO TÊNUE"
                 </a>
             </section>
 
-            <!-- TRILHA SONORA SADSTINK -->
+            <!-- SEÇÃO FONOGRÁFICA SADSTINK -->
             <section id="trilha" class="card">
-                <h2>SadStink — Trilha Sonora Original</h2>
-                <p>Álbuns <em>Museum of Lies</em> e <em>Ground Zero</em> integrados à experiência cênica internacional.</p>
+                <h2>SadStink — Core Audio Pipeline</h2>
+                <p>Sinfonia digital, post-grunge e distorções mecânicas integradas ao ecossistema.</p>
                 
-                <!-- PLAYER AUTOMÁTICO - MUSEUM OF LIES -->
+                <!-- PLAYER AUTOMÁTICO DE REDE CORE -->
                 <div class="audio-widget">
-                    <span style="font-family: var(--mono); font-size: 11px; display: block; margin-bottom: 0.5rem; color: var(--cyan);">
-                        🔊 Executando: Museum of Lies EP
+                    <span style="font-family: var(--mono); font-size: 11px; display: block; margin-bottom: 0.6rem; color: var(--pink); letter-spacing: 0.1em;">
+                        ► STREAMING SYSTEM: Museum of Lies
                     </span>
                     <audio controls autoplay loop style="width: 100%;">
                         <source src="Museum_of_Lies.mp3" type="audio/mpeg">
-                        Seu navegador não suporta o player nativo.
+                        Codec de áudio não suportado pelo navegador.
                     </audio>
                 </div>
 
-                <!-- LINKS EXTERNOS OFICIAIS -->
                 <div class="streaming-links">
                     <a href="https://spotify.com" target="_blank" class="stream-btn spotify">Spotify</a>
-                    <a href="https://apple.com" target="_blank" class="stream-btn apple">Apple Music</a>
+                    <a href="https://apple.com" target="_blank" class="stream-btn apple">Apple</a>
                     <a href="https://amazon.com" target="_blank" class="stream-btn amazon">Amazon</a>
                     <a href="https://youtube.com" target="_blank" class="stream-btn youtube">YouTube</a>
                 </div>
