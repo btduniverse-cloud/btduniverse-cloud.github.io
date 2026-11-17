@@ -29,7 +29,7 @@
             content: "";
             position: fixed;
             inset: 0;
-            background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,212,255,0.005) 3px, rgba(0,212,255,0.005) 4px);
+            background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,212,255,0.01) 3px, rgba(0,212,255,0.01) 4px);
             pointer-events: none;
             z-index: 999;
         }
@@ -56,49 +56,64 @@
             text-decoration: none;
         }
 
+        /* BANNER IMERSIVO COM SUA LOGOMARCA CENTRAL */
         .banner-hero {
             position: relative;
-            min-height: 55vh;
+            min-height: 65vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             padding: 10rem 2rem 5rem;
-            background: linear-gradient(180deg, rgba(3,3,6,0.4) 0%, rgba(3,3,6,1) 100%), url('btdbanner.png') center/cover no-repeat;
-            border-bottom: 1px solid rgba(255, 0, 127, 0.15);
+            background: linear-gradient(180deg, rgba(3,3,6,0.5) 0%, rgba(3,3,6,1) 100%), url('btdbanner.png') center/cover no-repeat;
+            border-bottom: 1px solid rgba(255, 0, 127, 0.2);
         }
         .logo-container img {
-            max-width: 200px;
+            max-width: 260px;
             height: auto;
-            filter: drop-shadow(0 0 20px rgba(0,240,255,0.3));
+            filter: drop-shadow(0 0 25px rgba(0,240,255,0.4));
             margin-bottom: 2rem;
+        }
+        .banner-hero h1 {
+            font-family: var(--mono);
+            font-size: 1.4rem;
+            font-weight: 400;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: var(--ink);
+            text-shadow: 0 2px 15px rgba(0,0,0,0.9);
+            margin-top: 1rem;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 3rem 2rem;
+            padding: 4rem 2rem;
         }
         
         .role-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-bottom: 4rem;
+            gap: 2.5rem;
+            margin-bottom: 5rem;
         }
         @media (max-width: 768px) { .role-grid { grid-template-columns: 1fr; } }
 
         .card {
-            background: rgba(255,255,255,0.01);
-            border: 1px solid rgba(0,240,255,0.05);
-            padding: 2rem;
+            background: rgba(3,3,6,0.6);
+            border: 1px solid rgba(0,240,255,0.1);
+            padding: 2.5rem;
             border-radius: 4px;
+            position: relative;
+            backdrop-filter: blur(10px);
             transition: all 0.3s ease;
         }
         .card:hover { 
             border-color: var(--pink);
-            box-shadow: 0 0 30px rgba(255,0,127,0.05);
+            background: rgba(255,255,255,0.02);
+            box-shadow: 0 0 30px rgba(255,0,127,0.1);
+            transform: translateY(-2px);
         }
         .card h3 {
             font-family: var(--mono);
@@ -107,34 +122,46 @@
             text-transform: uppercase;
             margin-top: 0;
             color: var(--cyan);
+            border-bottom: 1px solid rgba(0,240,255,0.2);
+            padding-bottom: 0.5rem;
+        }
+        .card p {
+            font-size: 14px;
+            color: rgba(245,245,247,0.8);
+            margin-bottom: 0;
         }
 
+        /* DRIVE CONCEITUAL ESTRATÉGICO */
         .drive-section {
             text-align: center;
-            background: rgba(255,0,127,0.02);
+            background: linear-gradient(135deg, rgba(255,0,127,0.03) 0%, rgba(112,0,255,0.03) 100%);
             border: 1px solid rgba(255,0,127,0.2);
-            padding: 3rem;
+            padding: 4rem 2rem;
             border-radius: 4px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
         }
         .drive-btn {
             display: inline-block;
-            padding: 1rem 2.5rem;
+            padding: 1.2rem 3rem;
             font-family: var(--mono);
-            font-size: 13px;
+            font-size: 12px;
+            font-weight: bold;
             text-transform: uppercase;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.25em;
             text-decoration: none;
-            background: rgba(0,240,255,0.1);
+            background: rgba(0,240,255,0.08);
             color: var(--ink);
             border: 1px solid var(--cyan);
             border-radius: 2px;
             transition: all 0.3s ease;
-            margin-top: 1.5rem;
+            margin-top: 2rem;
+            box-shadow: 0 0 15px rgba(0,240,255,0.1);
         }
         .drive-btn:hover {
             background: var(--cyan);
-            color: #000;
-            box-shadow: 0 0 20px rgba(0,240,255,0.4);
+            color: #030306;
+            box-shadow: 0 0 25px var(--cyan);
+            font-weight: 700;
         }
     </style>
 </head>
@@ -144,38 +171,43 @@
         <a href="#" class="nav-logo">BTD UNIVERSE</a>
     </nav>
 
+    <!-- HEADER RESTAURADO COM O LOGO E BANNER DO ECOSSISTEMA -->
     <header class="banner-hero">
         <div class="logo-container">
             <img src="btdlogo.png" alt="BTD Logo">
         </div>
+        <h1>Breaking Through Digital</h1>
     </header>
 
     <main class="container">
         
+        <!-- TRÍADE DE IDENTIDADE: CURADOR, GRIOT E ARTESÃO -->
         <div class="role-grid">
             <div class="card">
                 <h3>// CURADORIA</h3>
-                <p>Articulação estética e seleção de ativos transmídia. Supervisão de ecossistemas visuais, fonográficos e de teledramaturgia voltados para o mercado internacional.</p>
+                <p>Articulação estética soberana e seleção de ativos transmedia. Supervisão técnica e direção criativa de ecossistemas visuais, fonográficos e de teledramaturgia voltados para o posicionamento e circulação no mercado internacional.</p>
             </div>
             <div class="card">
                 <h3>// GRIOT RUNNER</h3>
-                <p>Preservação e transmissão da memória immemorial através de estruturas tecnológicas modernas. Conexão ancestral e gerenciamento de narrativas de impacto global.</p>
+                <p>Preservação, tradução e transmissão ativa da memória immemorial através de interfaces e estruturas tecnológicas digitais avançadas. Gestão estratégica de narrativas e inteligência integrada.</p>
             </div>
             <div class="card">
                 <h3>// ARTESANATO</h3>
-                <p>Desenvolvimento meticuloso e autoral das memórias, arquiteturas musicais e roteiros originais (Master Screenplay). Construção orgânica e soberana da propriedade intelectual.</p>
+                <p>Desenvolvimento conceitual meticuloso e autoral de códices de memórias, arquiteturas de som (musical scores) e roteiros originais (Master Screenplay). Engenharia orgânica da propriedade intelectual.</p>
             </div>
         </div>
 
+        <!-- LINK DO SEU DRIVE CONCEITUAL CORRIGIDO -->
         <section class="drive-section">
-            <h2 style="font-family: var(--mono); font-size: 1.3rem; letter-spacing: 0.2em; text-transform: uppercase; margin: 0; color: var(--gold);">
+            <h2 style="font-family: var(--mono); font-size: 1.4rem; letter-spacing: 0.25em; text-transform: uppercase; margin: 0; color: var(--gold);">
                 Acesso ao Acervo Estratégico
             </h2>
-            <p style="max-width: 600px; margin: 1rem auto 0; font-size: 15px; color: rgba(245,245,247,0.7);">
-                Explore as bíblias de pitch, roteiros consolidados, linhas fonográficas protegidas por blockchain e documentos estruturais do ecossistema.
+            <p style="max-width: 650px; margin: 1.2rem auto 0; font-size: 15px; color: rgba(245,245,247,0.7); line-height: 1.6;">
+                Explore as bíblias de pitch, tratamentos estruturados, roteiros originais e linhas fonográficas protegidas por blockchain da BTD Universe.
             </p>
+            <!-- Link direto e exclusivo para o seu Drive Conceitual -->
             <a href="https://google.com" target="_blank" class="drive-btn">
-                // Entrar no Drive Conceitual
+                // Entrar no Drive de Ativos
             </a>
         </section>
 
