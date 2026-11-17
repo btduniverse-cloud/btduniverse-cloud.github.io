@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BTD UNIVERSE - Hub Oficial</title>
+    <title>BTD UNIVERSE — Hub Oficial</title>
     <style>
         :root {
             --bg: #030306;
@@ -13,7 +13,6 @@
             --pink: #ff007f;
             --gold: #ffd166;
             --sans: 'Rajdhani', sans-serif;
-            --serif: 'Cormorant Garamond', Georgia, serif;
             --mono: 'Space Mono', monospace;
         }
         body {
@@ -56,22 +55,10 @@
             color: var(--cyan);
             text-decoration: none;
         }
-        .nav-links { display: flex; gap: 2.5rem; }
-        .nav-links a {
-            font-family: var(--mono);
-            font-size: 11px;
-            color: var(--ink);
-            text-decoration: none;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            transition: color 0.2s;
-        }
-        .nav-links a:hover { color: var(--pink); }
 
-        /* HERO COM INTEGRATION DO SEU BANNER CYBER */
         .banner-hero {
             position: relative;
-            min-height: 60vh;
+            min-height: 55vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -82,149 +69,118 @@
             border-bottom: 1px solid rgba(255, 0, 127, 0.15);
         }
         .logo-container img {
-            max-width: 220px;
+            max-width: 200px;
             height: auto;
             filter: drop-shadow(0 0 20px rgba(0,240,255,0.3));
             margin-bottom: 2rem;
         }
-        .banner-hero h1 {
-            font-family: var(--mono);
-            font-size: 1.5rem;
-            font-weight: 400;
-            letter-spacing: 0.4em;
-            text-transform: uppercase;
-            margin: 0;
-            color: var(--ink);
-            text-shadow: 0 2px 15px rgba(0,0,0,0.9);
-        }
 
         .container {
-            max-width: 1100px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 3rem 2rem;
         }
-        .section-grid {
+        
+        .role-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
             margin-bottom: 4rem;
         }
-        @media (max-width: 768px) { .section-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) { .role-grid { grid-template-columns: 1fr; } }
 
         .card {
             background: rgba(255,255,255,0.01);
             border: 1px solid rgba(0,240,255,0.05);
-            padding: 2.5rem;
+            padding: 2rem;
             border-radius: 4px;
-            position: relative;
             transition: all 0.3s ease;
         }
         .card:hover { 
             border-color: var(--pink);
-            background: rgba(255,255,255,0.02);
             box-shadow: 0 0 30px rgba(255,0,127,0.05);
         }
-        .card h2 {
+        .card h3 {
             font-family: var(--mono);
-            font-size: 1.2rem;
-            letter-spacing: 0.2em;
+            font-size: 1.1rem;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
             margin-top: 0;
             color: var(--cyan);
         }
 
-        .audio-widget {
-            margin-top: 1.5rem;
-            background: rgba(255,0,127,0.03);
-            border: 1px solid rgba(255,0,127,0.3);
-            padding: 1.2rem;
+        .drive-section {
+            text-align: center;
+            background: rgba(255,0,127,0.02);
+            border: 1px solid rgba(255,0,127,0.2);
+            padding: 3rem;
             border-radius: 4px;
         }
-
-        .streaming-links {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
+        .drive-btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            font-family: var(--mono);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            text-decoration: none;
+            background: rgba(0,240,255,0.1);
+            color: var(--ink);
+            border: 1px solid var(--cyan);
+            border-radius: 2px;
+            transition: all 0.3s ease;
             margin-top: 1.5rem;
         }
-        .stream-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.8rem;
-            font-family: var(--mono);
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            text-decoration: none;
-            border-radius: 2px;
-            background: rgba(255,255,255,0.03);
-            color: var(--ink);
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: all 0.25s ease;
+        .drive-btn:hover {
+            background: var(--cyan);
+            color: #000;
+            box-shadow: 0 0 20px rgba(0,240,255,0.4);
         }
-        .stream-btn.spotify:hover { background: #1DB954; color: #000; border-color: #1DB954; }
-        .stream-btn.apple:hover { background: #FC3C44; color: #fff; border-color: #FC3C44; }
-        .stream-btn.amazon:hover { background: #00A8E1; color: #fff; border-color: #00A8E1; }
-        .stream-btn.youtube:hover { background: #FF0000; color: #fff; border-color: #FF0000; }
     </style>
 </head>
 <body>
 
     <nav>
         <a href="#" class="nav-logo">BTD UNIVERSE</a>
-        <div class="nav-links">
-            <a href="#narrativa">Narrativa</a>
-            <a href="#trilha">Trilha Sonora</a>
-        </div>
     </nav>
 
-    <!-- BANNER INTEGRADO COM PORTFÓLIO DE PROPRIEDADE INTESTRAL -->
     <header class="banner-hero">
         <div class="logo-container">
-            <!-- Puxa o logotipo com glitch digital enviado -->
             <img src="btdlogo.png" alt="BTD Logo">
         </div>
-        <h1>Breaking Through Digital</h1>
     </header>
 
     <main class="container">
-        <div class="section-grid">
-            
-            <!-- SEÇÃO LITERÁRIA NARRATIVA -->
-            <section id="narrativa" class="card">
-                <h2>Códice Narrativo</h2>
-                <p>Estrutura transmedia e profundidade subjetiva em LatAm. Acesse a fundação de nossa arquitetura de história:</p>
-                <a href="https://caravanagrupoeditorial.com.br" target="_blank" style="color: var(--pink); text-decoration: none; font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; font-weight: bold;">
-                    // ACESSAR "O FIO TÊNUE"
-                </a>
-            </section>
-
-            <!-- SEÇÃO FONOGRÁFICA SADSTINK -->
-            <section id="trilha" class="card">
-                <h2>SadStink — Core Audio Pipeline</h2>
-                <p>Sinfonia digital, post-grunge e distorções mecânicas integradas ao ecossistema.</p>
-                
-                <!-- PLAYER AUTOMÁTICO DE REDE CORE -->
-                <div class="audio-widget">
-                    <span style="font-family: var(--mono); font-size: 11px; display: block; margin-bottom: 0.6rem; color: var(--pink); letter-spacing: 0.1em;">
-                        ► STREAMING SYSTEM: Museum of Lies
-                    </span>
-                    <audio controls autoplay loop style="width: 100%;">
-                        <source src="Museum_of_Lies.mp3" type="audio/mpeg">
-                        Codec de áudio não suportado pelo navegador.
-                    </audio>
-                </div>
-
-                <div class="streaming-links">
-                    <a href="https://spotify.com" target="_blank" class="stream-btn spotify">Spotify</a>
-                    <a href="https://apple.com" target="_blank" class="stream-btn apple">Apple</a>
-                    <a href="https://amazon.com" target="_blank" class="stream-btn amazon">Amazon</a>
-                    <a href="https://youtube.com" target="_blank" class="stream-btn youtube">YouTube</a>
-                </div>
-            </section>
-
+        
+        <!-- TRÍADE CONCEITUAL -->
+        <div class="role-grid">
+            <div class="card">
+                <h3>// CURADORIA</h3>
+                <p>Articulação estética e seleção de ativos transmídia. Supervisão de ecossistemas visuais, fonográficos e de teledramaturgia voltados para o mercado internacional.</p>
+            </div>
+            <div class="card">
+                <h3>// GRIOT RUNNER</h3>
+                <p>Preservação e transmissão da memória immemorial através de estruturas tecnológicas modernas. Conexão ancestral e gerenciamento de narrativas de impacto global.</p>
+            </div>
+            <div class="card">
+                <h3>// ARTESANATO</h3>
+                <p>Desenvolvimento meticuloso e autoral das memórias, arquiteturas musicais e roteiros originais (Master Screenplay). Construção orgânica e soberana da propriedade intelectual.</p>
+            </div>
         </div>
+
+        <!-- LINK PARA O DRIVE CONCEITUAL -->
+        <section class="drive-section">
+            <h2 style="font-family: var(--mono); font-size: 1.3rem; letter-spacing: 0.2em; text-transform: uppercase; margin: 0; color: var(--gold);">
+                Acesso ao Acervo Estratégico
+            </h2>
+            <p style="max-width: 600px; margin: 1rem auto 0; font-size: 15px; color: rgba(245,245,247,0.7);">
+                Explore as bíblias de pitch, roteiros consolidados, linhas fonográficas protegidas por blockchain e documentos estruturais do ecossistema.
+            </p>
+            <a href="https://google.com" target="_blank" class="drive-btn">
+                // Entrar no Drive Conceitual
+            </a>
+        </section>
+
     </main>
 
 </body>
