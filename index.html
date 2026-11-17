@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BTD UNIVERSE — Hub Oficial</title>
+    <title>BTD UNIVERSE — Hub Operacional Transmídia</title>
     <style>
         :root {
             --bg: #030306;
@@ -33,7 +33,6 @@
             pointer-events: none;
             z-index: 999;
         }
-
         nav {
             position: fixed;
             top: 0; left: 0; right: 0;
@@ -55,11 +54,9 @@
             color: var(--cyan);
             text-decoration: none;
         }
-
-        /* BANNER IMERSIVO COM SUA LOGOMARCA CENTRAL */
         .banner-hero {
             position: relative;
-            min-height: 65vh;
+            min-height: 55vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -70,50 +67,43 @@
             border-bottom: 1px solid rgba(255, 0, 127, 0.2);
         }
         .logo-container img {
-            max-width: 260px;
+            max-width: 240px;
             height: auto;
             filter: drop-shadow(0 0 25px rgba(0,240,255,0.4));
-            margin-bottom: 2rem;
         }
-        .banner-hero h1 {
-            font-family: var(--mono);
-            font-size: 1.4rem;
-            font-weight: 400;
-            letter-spacing: 0.4em;
-            text-transform: uppercase;
-            color: var(--ink);
-            text-shadow: 0 2px 15px rgba(0,0,0,0.9);
-            margin-top: 1rem;
-        }
-
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 4rem 2rem;
         }
-        
-        .role-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2.5rem;
-            margin-bottom: 5rem;
+        .main-headline {
+            font-family: var(--mono);
+            font-size: 14px;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--pink);
+            margin-bottom: 3rem;
+            border-left: 3px solid var(--pink);
+            padding-left: 1rem;
         }
-        @media (max-width: 768px) { .role-grid { grid-template-columns: 1fr; } }
-
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+        @media (max-width: 768px) { .section-grid { grid-template-columns: 1fr; } }
         .card {
             background: rgba(3,3,6,0.6);
             border: 1px solid rgba(0,240,255,0.1);
             padding: 2.5rem;
             border-radius: 4px;
-            position: relative;
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
         }
         .card:hover { 
-            border-color: var(--pink);
-            background: rgba(255,255,255,0.02);
-            box-shadow: 0 0 30px rgba(255,0,127,0.1);
-            transform: translateY(-2px);
+            border-color: var(--cyan);
+            box-shadow: 0 0 30px rgba(0,240,255,0.05);
         }
         .card h3 {
             font-family: var(--mono);
@@ -125,44 +115,66 @@
             border-bottom: 1px solid rgba(0,240,255,0.2);
             padding-bottom: 0.5rem;
         }
-        .card p {
-            font-size: 14px;
-            color: rgba(245,245,247,0.8);
-            margin-bottom: 0;
-        }
-
-        /* DRIVE CONCEITUAL ESTRATÉGICO */
-        .drive-section {
-            text-align: center;
-            background: linear-gradient(135deg, rgba(255,0,127,0.03) 0%, rgba(112,0,255,0.03) 100%);
-            border: 1px solid rgba(255,0,127,0.2);
-            padding: 4rem 2rem;
-            border-radius: 4px;
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
-        }
-        .drive-btn {
+        .status-badge {
             display: inline-block;
-            padding: 1.2rem 3rem;
+            font-family: var(--mono);
+            font-size: 10px;
+            padding: 0.2rem 0.6rem;
+            border-radius: 2px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+        .status-badge.active { background: rgba(0,240,255,0.1); color: var(--cyan); border: 1px solid var(--cyan); }
+        .status-badge.progress { background: rgba(255,0,127,0.1); color: var(--pink); border: 1px solid var(--pink); }
+        .status-badge.pitch { background: rgba(255,209,102,0.1); color: var(--gold); border: 1px solid var(--gold); }
+        
+        .audio-pipeline {
+            background: rgba(255,0,127,0.03);
+            border: 1px solid rgba(255,0,127,0.2);
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin-top: 1.5rem;
+        }
+        .streaming-links {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        @media (max-width: 480px) { .streaming-links { grid-template-columns: 1fr 1fr; } }
+        .stream-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.8rem;
+            font-family: var(--mono);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            border-radius: 2px;
+            background: rgba(255,255,255,0.03);
+            color: var(--ink);
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.2s;
+        }
+        .stream-btn.spotify:hover { background: #1DB954; color: #000; }
+        .stream-btn.apple:hover { background: #FC3C44; color: #fff; }
+        .stream-btn.amazon:hover { background: #00A8E1; color: #fff; }
+        .stream-btn.youtube:hover { background: #FF0000; color: #fff; }
+
+        .ln-link {
+            color: var(--gold);
+            text-decoration: none;
             font-family: var(--mono);
             font-size: 12px;
+            letter-spacing: 0.1em;
             font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 0.25em;
-            text-decoration: none;
-            background: rgba(0,240,255,0.08);
-            color: var(--ink);
-            border: 1px solid var(--cyan);
-            border-radius: 2px;
-            transition: all 0.3s ease;
-            margin-top: 2rem;
-            box-shadow: 0 0 15px rgba(0,240,255,0.1);
+            display: inline-block;
+            margin-top: 1rem;
         }
-        .drive-btn:hover {
-            background: var(--cyan);
-            color: #030306;
-            box-shadow: 0 0 25px var(--cyan);
-            font-weight: 700;
-        }
+        .ln-link:hover { text-decoration: underline; color: var(--cyan); }
     </style>
 </head>
 <body>
@@ -171,45 +183,66 @@
         <a href="#" class="nav-logo">BTD UNIVERSE</a>
     </nav>
 
-    <!-- HEADER RESTAURADO COM O LOGO E BANNER DO ECOSSISTEMA -->
     <header class="banner-hero">
         <div class="logo-container">
             <img src="btdlogo.png" alt="BTD Logo">
         </div>
-        <h1>Breaking Through Digital</h1>
     </header>
 
     <main class="container">
         
-        <!-- TRÍADE DE IDENTIDADE: CURADOR, GRIOT E ARTESÃO -->
-        <div class="role-grid">
-            <div class="card">
-                <h3>// CURADORIA</h3>
-                <p>Articulação estética soberana e seleção de ativos transmedia. Supervisão técnica e direção criativa de ecossistemas visuais, fonográficos e de teledramaturgia voltados para o posicionamento e circulação no mercado internacional.</p>
-            </div>
-            <div class="card">
-                <h3>// GRIOT RUNNER</h3>
-                <p>Preservação, tradução e transmissão ativa da memória immemorial através de interfaces e estruturas tecnológicas digitais avançadas. Gestão estratégica de narrativas e inteligência integrada.</p>
-            </div>
-            <div class="card">
-                <h3>// ARTESANATO</h3>
-                <p>Desenvolvimento conceitual meticuloso e autoral de códices de memórias, arquiteturas de som (musical scores) e roteiros originais (Master Screenplay). Engenharia orgânica da propriedade intelectual.</p>
-            </div>
-        </div>
+        <div class="main-headline">// PIPELINE OPERACIONAL — SOBERANIA TRANSMÍDIA & ATIVOS CRIPTOGRAFADOS</div>
 
-        <!-- LINK DO SEU DRIVE CONCEITUAL CORRIGIDO -->
-        <section class="drive-section">
-            <h2 style="font-family: var(--mono); font-size: 1.4rem; letter-spacing: 0.25em; text-transform: uppercase; margin: 0; color: var(--gold);">
-                Acesso ao Acervo Estratégico
-            </h2>
-            <p style="max-width: 650px; margin: 1.2rem auto 0; font-size: 15px; color: rgba(245,245,247,0.7); line-height: 1.6;">
-                Explore as bíblias de pitch, tratamentos estruturados, roteiros originais e linhas fonográficas protegidas por blockchain da BTD Universe.
-            </p>
-            <!-- Link direto e exclusivo para o seu Drive Conceitual -->
-            <a href="https://google.com" target="_blank" class="drive-btn">
-                // Entrar no Drive de Ativos
-            </a>
-        </section>
+        <div class="section-grid">
+            
+            <!-- CÓDICE LITERÁRIO -->
+            <div class="card">
+                <span class="status-badge active">Publicado / Codex Mestre</span>
+                <h3>O Fio Tênue — Literatura Cênica</h3>
+                <p>Fundação narrativa e poética do ecossistema. Obra impressa e distribuída que ancora as subjetividades e fraturas de todo o universo expandido.</p>
+                <a href="https://caravanagrupoeditorial.com.br" target="_blank" class="ln-link">→ ACESSAR EDITORA CARAVANA</a>
+            </div>
+
+            <!-- GRAPHIC NOVEL -->
+            <div class="card">
+                <span class="status-badge progress">Em Andamento / Produção</span>
+                <h3>SadStink: Museu de Mentiras — Graphic Novel</h3>
+                <p>Desenvolvimento visual, ilustrações, storyboards e romances gráficos derivados da esteira conceitual da banda. Mitologia expandida em fase ativa de ilustração.</p>
+                <a href="https://youtube.com" target="_blank" class="ln-link">→ VER CANAL DA BANDA NO YOUTUBE</a>
+            </div>
+
+            <!-- PROJETO GROUND ZERO -->
+            <div class="card">
+                <span class="status-badge pitch">Rodadas de Negócio / Pitching</span>
+                <h3>Ground Zero / Zeus KOR — Série Longa</h3>
+                <p>Projeto transmídia de ficção e suspense psicológico fortemente ancorado em neurociência. Selecionado e em circulação ativa em rodadas de negócios de audiovisual e eventos de mercado internacionais.</p>
+            </div>
+
+            <!-- TRILHA SONORA & PIPELINE FONOGRÁFICO -->
+            <div class="card">
+                <span class="status-badge active">Streaming Pipeline</span>
+                <h3>SadStink — Trilha Sonora Original</h3>
+                <p>Conceito musical híbrido fundindo ópera gótica, post-grunge e dinâmicas eletrônicas sob o selo Macondo. Direitos e linhas fonográficas protegidos via Avctoris IP Blockchain.</p>
+                
+                <div class="audio-pipeline">
+                    <span style="font-family: var(--mono); font-size: 11px; display: block; margin-bottom: 0.5rem; color: var(--pink);">
+                        🔊 RUNNING CORE PIPELINE: Museum of Lies
+                    </span>
+                    <audio controls autoplay loop style="width: 100%;">
+                        <source src="Museum_of_Lies.mp3" type="audio/mpeg">
+                        Codec nativo ausente.
+                    </audio>
+                </div>
+
+                <div class="streaming-links">
+                    <a href="https://spotify.com" target="_blank" class="stream-btn spotify">Spotify</a>
+                    <a href="https://apple.com" target="_blank" class="stream-btn apple">Apple</a>
+                    <a href="https://amazon.com" target="_blank" class="stream-btn amazon">Amazon</a>
+                    <a href="https://youtube.com" target="_blank" class="stream-btn youtube">YouTube</a>
+                </div>
+            </div>
+
+        </div>
 
     </main>
 
